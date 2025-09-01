@@ -1,9 +1,8 @@
 streamlit
-tensorflow
-matplotlib
+tensorflow-cpu
 numpy
-# streamlit
-# tensorflow
-# numpy
-# pillow
+pillow
+pandas
+scikit-learn
+altair
 
