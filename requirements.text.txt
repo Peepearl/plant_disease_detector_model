@@ -1,0 +1,9 @@
+streamlit
+tensorflow
+matplotlib
+numpy
+# streamlit
+# tensorflow
+# numpy
+# pillow
+
