@@ -46,7 +46,7 @@ def set_bg_image(image_file):
     )
 
 # Set your local background image
-set_bg_image(r"C:\Users\Patience\AI engineer webfala\plant_streamlit\imagenew1.jpeg")
+set_bg_image(r"C:\Users\Patience\AI engineer webfala\plant_streamlit\imageNew.jpeg")
 
 # Disease to Solution Mapping for 7 classes
 disease_solutions = {
@@ -72,7 +72,7 @@ st.markdown(
     """
     <style>
     .block-container {
-        margin-left: 25%;   /* shift page slightly to the right */
+        margin-left: 50%;   /* shift page slightly to the right */
         margin-right: auto;
     }
     </style>
@@ -95,13 +95,13 @@ if uploaded_file is not None:
 
             # Display top prediction
             if "Healthy" in pred_class:
-                st.success(f"The leaf looks **{pred_class}** 🌿")
+                st.success(f"The leaf is **{pred_class}** 🌿")
             else:
-                st.error(f"The leaf is likely affected: **{pred_class}** 🚨")
+                st.error(f"The leaf is affected by: **{pred_class}** 🚨")
             st.info(f"Confidence: **{confidence*100:.2f}%**")
 
             # Display recommendation
-            solution = disease_solutions.get(pred_class, "No recommendation available for this disease.")
+            solution = disease_solutions.get(pred_class, "Apply phosphorus-rich fertilizers according to soil test recommendations.")
             st.markdown("### 💡 Recommended Action:")
             st.markdown(solution)
 
