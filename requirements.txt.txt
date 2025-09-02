@@ -1,8 +1,7 @@
 streamlit
-tensorflow==2.16.1
-pandas
+tensorflow==2.20.0
 numpy
-Pillow
+pillow
+pandas
 altair
-
 
