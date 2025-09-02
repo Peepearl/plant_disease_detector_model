@@ -80,13 +80,21 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 # File uploader
 uploaded_file = st.file_uploader("Upload an image...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
+    # Open the uploaded image
     image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Leaf Image', use_column_width=True)
+
+    # 🔹 Resize the image to reduce height while keeping aspect ratio
+    max_height = 400  # adjust this number as needed
+    ratio = max_height / image.height
+    new_width = int(image.width * ratio)
+    image = image.resize((new_width, max_height))
+
+    # Display resized image
+    st.image(image, caption='Uploaded Leaf Image', use_container_width=False)
 
     if st.button("Analyze Image"):
         with st.spinner("🔎 Analyzing..."):
@@ -94,14 +102,20 @@ if uploaded_file is not None:
             pred_class, confidence, probs = predict(image)  # probs is dict of all classes
 
             # Display top prediction
-            if "Healthy" in pred_class:
-                st.success(f"The leaf is **{pred_class}** 🌿")
-            else:
-                st.error(f"The leaf is affected by: **{pred_class}** 🚨")
-            st.info(f"Confidence: **{confidence*100:.2f}%**")
+            # Display top prediction
+        if pred_class == "Healthy":
+            st.success(f"The leaf is **{pred_class}** 🌿")
+        elif pred_class == "Others":
+            st.warning("Sorry! This is not part of this project scope 🚫")
+        else:
+            st.error(f"The leaf is affected by: **{pred_class}** 🚨")
+
 
             # Display recommendation
-            solution = disease_solutions.get(pred_class, "Apply phosphorus-rich fertilizers according to soil test recommendations.")
+            solution = disease_solutions.get(
+                pred_class,
+                "Apply phosphorus-rich fertilizers according to soil test recommendations."
+            )
             st.markdown("### 💡 Recommended Action:")
             st.markdown(solution)
 
@@ -142,36 +156,6 @@ if uploaded_file is not None:
 
             st.write("### 📊 Class Probabilities")
             st.altair_chart(chart + text, use_container_width=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Footer
 st.markdown("---")
