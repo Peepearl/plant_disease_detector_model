@@ -1,8 +1,8 @@
 streamlit
-tensorflow-cpu
-numpy
-pillow
+tensorflow==2.20.0
 pandas
-scikit-learn
+numpy
+Pillow
 altair
+
 
