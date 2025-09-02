@@ -46,7 +46,7 @@ def set_bg_image(image_file):
     )
 
 # Set your local background image
-set_bg_image(r"C:\Users\Patience\AI engineer webfala\plant_streamlit\imageNew.jpeg")
+set_bg_image("imageNew.jpeg")
 
 # Disease to Solution Mapping for 7 classes
 disease_solutions = {
