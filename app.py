@@ -96,8 +96,6 @@ if uploaded_file is not None:
             # Display top prediction
             if "Healthy" in pred_class:
                 st.success(f"The leaf is **{pred_class}** 🌿")
-            elif 'Others': 
-                "Sorry! This is out of this project scope"
             else:
                 st.error(f"The leaf is affected by: **{pred_class}** 🚨")
             st.info(f"Confidence: **{confidence*100:.2f}%**")
