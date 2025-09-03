@@ -46,7 +46,7 @@ def set_bg_image(image_file):
     )
 
 # Set your local background image
-set_bg_image("imagenew4.jpeg")
+set_bg_image("background.jpeg")
 
 # Disease to Solution Mapping for 7 classes
 disease_solutions = {
@@ -72,7 +72,7 @@ st.markdown(
     """
     <style>
     .block-container {
-        margin-left: 50%;   /* shift page slightly to the right */
+        margin-left: 10%;   /* shift page slightly to the right */
         margin-right: auto;
     }
     </style>
