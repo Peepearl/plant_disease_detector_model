@@ -46,7 +46,7 @@ def set_bg_image(image_file):
     )
 
 # Set your local background image
-set_bg_image("imagenew1.jpeg")
+set_bg_image("imagenew4.jpeg")
 
 # Disease to Solution Mapping for 7 classes
 disease_solutions = {
